@@ -1,0 +1,9 @@
+$primary: rgb(104, 208, 218);
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  text-align: center;
+}

@@ -1,4 +1,5 @@
-$primary-color: white;
+@import "./variables";
+$primary-color: #fda085;
 $bg: black;
 * {
   margin: 0;
@@ -8,16 +9,89 @@ $bg: black;
 }
 
 body {
-  background-image: linear-gradient(120deg, #f6d365, #fda085);
+  background-image: linear-gradient(120deg, #f6d365, $primary-color);
   color: white;
   min-height: 100vh;
 }
 
 header {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
 }
 
+header,
 form {
   min-height: 20vh;
-  background-color: white;
+  @include flexCenter(row);
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  &:focus {
+    outline: none;
+  }
+}
+
+form input {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+form button {
+  color: $primary-color;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0 0.25rem 0.25rem 0;
+
+  &:hover {
+    color: #f6d365;
+  }
+}
+
+.todo-container {
+  @include flexCenter(row);
+}
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  @include flexCenter(row);
+  justify-content: space-between;
+  border-radius: 0.25rem;
+}
+
+.todo li {
+  flex: 1;
+}
+.trash-btn,
+.complete-btn {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  &:focus {
+    outline: none;
+  }
+}
+
+.complete-btn:hover {
+  background: lightGreen;
+}
+.trash-btn {
+  border-radius: 0 0.25rem 0.25rem 0;
+  &:hover {
+    background: #cf645a;
+  }
 }
