@@ -1,11 +1,15 @@
 @import "./variables";
 $primary-color: #fda085;
 $bg: black;
+$secondary-color: #b5c4b1;
+$secondary-color-dark: #96a48b;
+$secondary-color-light: #e0e5df;
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  color: $primary-color;
 }
 
 body {
@@ -16,6 +20,7 @@ body {
 
 header {
   font-size: 2.5rem;
+  color: white;
 }
 
 header,
@@ -67,6 +72,7 @@ form button {
   @include flexCenter(row);
   justify-content: space-between;
   border-radius: 0.25rem;
+  transition: all 0.5s ease;
 }
 
 .todo li {
@@ -84,14 +90,73 @@ form button {
   &:focus {
     outline: none;
   }
+  i {
+    color: white;
+  }
 }
 
 .complete-btn:hover {
-  background: lightGreen;
+  background: rgb(106, 184, 106);
+  // background: $secondary-color;
+  i {
+    pointer-events: none;
+  }
 }
 .trash-btn {
   border-radius: 0 0.25rem 0.25rem 0;
   &:hover {
     background: #cf645a;
+  }
+  i {
+    pointer-events: none;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+  transition: all 0.5s ease;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+select {
+  border: none;
+  -webkit-appearance: none; //Safari Chrome Opera 取消下拉箭頭
+  -moz-appearance: none; //Firefox 取消下拉箭頭
+  appearance: none;
+  outline: none;
+  border: none;
+  color: $primary-color;
+  width: 12rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 0.25rem;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "\25BC";
+    color: white;
+    background-color: $primary-color;
+    position: absolute;
+    top: 0;
+    right: 0;
+    pointer-events: none;
+    height: 100%;
+    width: 20%;
+    @include flexCenter(row);
+    font-size: 1.5rem;
+    transition: 0.3s ease;
+    border-radius: 0 0.25rem 0.25rem 0;
+  }
+  &:hover::after {
+    color: $primary-color;
+    background-color: white;
   }
 }
