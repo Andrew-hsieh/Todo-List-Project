@@ -1,0 +1,22 @@
+{
+  "name": "todo-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "start": "parcel src/index.html",
+    "build-prod": "parcel build src/index.html"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "sass": "^1.32.8"
+  }
+}
